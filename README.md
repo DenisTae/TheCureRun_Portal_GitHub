@@ -33,12 +33,7 @@ js/             Interacciones del portal (menú, animaciones, contadores)
 img/            Imágenes y recursos gráficos
 fonts/          Tipografía Poppins
 juego/          Build de Unity WebGL (index.html, Build, TemplateData)
-GUIA_PUBLICAR.md   Guía para exportar y publicar el juego
 ```
-
-## 🚀 Publicación
-
-El sitio se publica con **GitHub Pages** (rama `main`, carpeta raíz). Los pasos para exportar el juego desde Unity y subirlo están en [`GUIA_PUBLICAR.md`](GUIA_PUBLICAR.md).
 
 > Nota: el build usa compresión **Gzip con Decompression Fallback** para funcionar en GitHub Pages. Los archivos de `juego/Build` son pesados (el mayor ronda los 28 MB), por eso se suben con Git / GitHub Desktop y no desde la web de GitHub.
 
