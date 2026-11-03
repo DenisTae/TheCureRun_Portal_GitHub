@@ -6,7 +6,7 @@
 
 🎮 **Jugar:** https://denistae.github.io/TheCureRun_Portal_GitHub/
 
-![Captura del juego](img/captura.jpg)
+![Captura del juego](img/enfermera.jpg)
 
 ## 📖 Resumen
 
@@ -42,6 +42,3 @@ El sitio se publica con **GitHub Pages** (rama `main`, carpeta raíz). Los pasos
 
 > Nota: el build usa compresión **Gzip con Decompression Fallback** para funcionar en GitHub Pages. Los archivos de `juego/Build` son pesados (el mayor ronda los 28 MB), por eso se suben con Git / GitHub Desktop y no desde la web de GitHub.
 
-## 👤 Autor
-
-**Denis Medrano** · [@DenisTae](https://github.com/DenisTae)
