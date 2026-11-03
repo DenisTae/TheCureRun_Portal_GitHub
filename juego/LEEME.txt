@@ -1,0 +1,5 @@
+PLANTILLA WEBGL "CureRun"
+Copia esta carpeta (CureRun) dentro de  Assets/WebGLTemplates/  de tu proyecto de Unity.
+Luego: Edit > Project Settings > Player > (icono Web) > Resolution and Presentation > WebGL Template > CureRun.
+Al exportar, Unity genera un index.html a pantalla completa con el tema del juego,
+botón "Volver al portal" (../index.html), pantalla completa y los créditos.

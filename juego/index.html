@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheCureRun | Jugar</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="back" href="../index.html">&larr; Volver al portal</a>
+      <span class="brand">The Cure Run</span>
+      <div class="actions">
+        <span class="hint">Flecha Arriba: saltar &middot; Flecha Abajo: agacharse &middot; Esc: pausa</span>
+        <button id="unity-fullscreen-button" type="button">Pantalla completa</button>
+      </div>
+    </header>
+
+    <main class="stage">
+      <div id="unity-container">
+        <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+
+        <div id="unity-loading-bar">
+          <img class="heart" src="TemplateData/heart.png" alt="">
+          <h1>The Cure Run</h1>
+          <p class="tagline">no dejes que apaguen tu coraz&oacute;n</p>
+          <div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div>
+          <p id="unity-progress-text">Cargando... la primera vez puede tardar unos segundos</p>
+          <p class="credits">Denis Medrano Carrasco &middot; Ariana Patzi Gonzales</p>
+        </div>
+
+        <div id="mobile-message" style="display:none">
+          <h2>Este juego se juega con teclado</h2>
+          <p>Abre esta p&aacute;gina en una computadora para poder saltar y agacharte.</p>
+          <button id="mobile-continue" type="button">Intentar de todos modos</button>
+        </div>
+
+        <div id="unity-warning"></div>
+      </div>
+    </main>
+
+    <script>
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/juego.loader.js";
+      var config = {
+        arguments: [],
+        dataUrl: buildUrl + "/juego.data.unityweb",
+        frameworkUrl: buildUrl + "/juego.framework.js.unityweb",
+        codeUrl: buildUrl + "/juego.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "TheCureRun",
+        productVersion: "0.1.0",
+        showBanner: unityShowBanner,
+        devicePixelRatio: Math.min(window.devicePixelRatio || 1, 1.5)
+      };
+
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var progressText = document.querySelector("#unity-progress-text");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var mobileMessage = document.querySelector("#mobile-message");
+      var started = false;
+
+      function unityShowBanner(msg, type) {
+        var warningBanner = document.querySelector("#unity-warning");
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length ? "block" : "none";
+        }
+        var div = document.createElement("div");
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == "error") {
+          div.className = "banner-error";
+        } else {
+          if (type == "warning") div.className = "banner-warning";
+          setTimeout(function () {
+            if (div.parentNode) warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
+        updateBannerVisibility();
+      }
+
+      function startGame() {
+        if (started) return;
+        started = true;
+        mobileMessage.style.display = "none";
+        loadingBar.style.display = "flex";
+        var script = document.createElement("script");
+        script.src = loaderUrl;
+        script.onload = function () {
+          createUnityInstance(canvas, config, function (progress) {
+            progressBarFull.style.width = (100 * progress) + "%";
+            progressText.textContent = "Cargando... " + Math.round(100 * progress) + " %";
+          }).then(function (unityInstance) {
+            loadingBar.style.display = "none";
+            canvas.focus();
+            fullscreenButton.onclick = function () { unityInstance.SetFullscreen(1); };
+            container.addEventListener("click", function () { canvas.focus(); });
+          }).catch(function (message) {
+            progressText.textContent = "No se pudo cargar el juego. Recarga con Ctrl + F5 o prueba otro navegador.";
+            console.error(message);
+          });
+        };
+        script.onerror = function () {
+          progressText.textContent = "No se encontraron los archivos del juego (carpeta Build). Revisa la publicaci\u00f3n.";
+        };
+        document.body.appendChild(script);
+      }
+
+      var isTouch = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isTouch) {
+        loadingBar.style.display = "none";
+        mobileMessage.style.display = "flex";
+        document.querySelector("#mobile-continue").onclick = startGame;
+      } else {
+        startGame();
+      }
+    </script>
+  </body>
+</html>

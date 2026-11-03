@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Cure Run | Endless runner 3D inspirado en "the cure"</title>
+  <meta name="description" content="The Cure Run: corredor infinito 3D en un pasillo de hospital retro. Una enfermera corre para que no le apaguen el corazón. Juega gratis en el navegador.">
+  <meta name="theme-color" content="#43121c">
+  <link rel="icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#inicio">Saltar al contenido</a>
+
+<!-- 1. ENCABEZADO DE NAVEGACIÓN -->
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#inicio" aria-label="The Cure Run, inicio">
+      <img src="img/heart_red.png" alt="" width="34" height="34">
+      <span>The Cure Run</span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="menu" class="menu" aria-label="Navegación principal">
+      <a href="#historia">Historia</a>
+      <a href="#personaje">Personaje</a>
+      <a href="#mecanicas">Mecánicas</a>
+      <a href="#datos">Datos</a>
+      <a class="pill" href="juego/index.html" target="_blank" rel="noopener">Jugar ahora</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- 2. SECCIÓN PRINCIPAL -->
+<section id="inicio" class="hero">
+  <div class="floaters" aria-hidden="true">
+    <img src="img/heart_red.png" alt="" style="--x:6%;--s:34px;--d:9s;--t:0s">
+    <img src="img/heart_red.png" alt="" style="--x:18%;--s:20px;--d:12s;--t:2s">
+    <img src="img/heart_black.png" alt="" style="--x:44%;--s:26px;--d:14s;--t:4s">
+    <img src="img/heart_red.png" alt="" style="--x:63%;--s:30px;--d:10s;--t:1s">
+    <img src="img/heart_red.png" alt="" style="--x:82%;--s:22px;--d:13s;--t:3s">
+    <img src="img/heart_black.png" alt="" style="--x:93%;--s:30px;--d:11s;--t:5s">
+  </div>
+
+  <div class="wrap hero-grid">
+    <div class="hero-text reveal">
+      <span class="tag">ENDLESS RUNNER 3D</span>
+      <h1>The Cure<br>Run</h1>
+      <p class="lead">No dejes que apaguen tu corazón.</p>
+      <p class="desc">Una enfermera corre sin fin por el pasillo de un hospital retro de tonos pastel. Antídotos, candelabros y corazones intentan frenarla: cada golpe le quita una vida. No existe la victoria; la meta es aguantar más que la vez anterior y superar tu propio récord antes de perder las tres vidas.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="juego/index.html" target="_blank" rel="noopener">JUGAR AHORA</a>
+        <a class="btn btn-ghost" href="#historia">Conocer la historia</a>
+      </div>
+
+      <ul class="metrics" aria-label="Métricas rápidas">
+        <li><strong>3</strong><span>vidas iniciales</span></li>
+        <li><strong class="keys"><kbd>↑</kbd><kbd>↓</kbd></strong><span>saltar / agacharse</span></li>
+        <li><strong>20 s</strong><span>sube de nivel</span></li>
+        <li><strong>500</strong><span>récord inicial (pts)</span></li>
+      </ul>
+    </div>
+
+    <figure class="hero-art reveal">
+      <div class="monitor">
+        <img src="img/captura.jpg" alt="Captura del menú de The Cure Run: título, botones Jugar, Mejores récords y Salir sobre el pasillo del hospital">
+      </div>
+      <figcaption>Captura del juego · pasillo retro y puertas “O R” al fondo</figcaption>
+    </figure>
+  </div>
+  <div class="floor" aria-hidden="true"></div>
+</section>
+
+<!-- 3. HISTORIA -->
+<section id="historia" class="section">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <span class="kicker">Historia</span>
+      <h2>Un pasillo sin final</h2>
+      <p>Un mundo de cartón pintado, dulce e inquietante a la vez, tomado de la estética del videoclip de “the cure”.</p>
+    </header>
+
+    <div class="two-col">
+      <article class="card reveal">
+        <h3>Contexto narrativo</h3>
+        <p>The Cure Run transcurre en el pasillo recto y sin fin de un hospital retro de los años 50. Las paredes son de un verde azulado desgastado, con azulejos blancos en la parte baja y puertas de consultorio con ventanillas de persiana a ambos lados. El piso es un tablero de cuadros menta, crema y gris azulado.</p>
+        <p>Los tragaluces del techo bañan el espacio de un rosa suave, y entre ellos cuelgan candelabros que iluminan el camino y, a la vez, bloquean la parte alta. Al fondo se ven siempre las puertas dobles rosadas del quirófano (“O R”) y una pared de bloques de vidrio que brilla en rosa. Esas puertas nunca se alcanzan: son la meta que se aleja.</p>
+      </article>
+
+      <article class="card reveal">
+        <h3>Arco argumental</h3>
+        <p>Las luces se apagan y vuelven a encenderse en rosa. Una enfermera aparece de pie en medio del pasillo, de espaldas, con las puertas cerradas al fondo, y empieza a correr hacia ellas. Delante de ella flota un corazón rojo: es el suyo.</p>
+        <p>A su alrededor, los antídotos y los candelabros quieren frenarla, y cada corazón que roza se apaga. Ella corre para que no le apaguen el suyo y para no dejarse curar de lo que siente: es una metáfora sobre resistirse a que “la cura” borre lo que sentimos. Como no hay meta, solo se puede aguantar más.</p>
+      </article>
+    </div>
+
+    <ol class="timeline reveal" aria-label="Momentos de la historia">
+      <li><span>1</span><h4>La entrada</h4><p>Las luces parpadean y la enfermera aparece frente a las puertas “O R”, en pose de llamada.</p></li>
+      <li><span>2</span><h4>La carrera</h4><p>Las puertas se abren, cuenta regresiva 3, 2, 1 y empieza a correr sin detenerse.</p></li>
+      <li><span>3</span><h4>Las puertas de nivel</h4><p>Cada 20 segundos cruza una puerta que se abre: el pasillo cambia de luz y todo va más rápido.</p></li>
+      <li><span>4</span><h4>La derrota</h4><p>Con la tercera vida perdida cae, las luces se apagan y aparece “Perdiste… no tuviste la cura”.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 4. PERSONAJE PRINCIPAL -->
+<section id="personaje" class="section alt">
+  <div class="wrap char-grid">
+    <figure class="char-photo reveal">
+      <div class="arch"><img src="img/enfermera.jpg" alt="Referencia visual del personaje: enfermera de uniforme rosa claro y cofia blanca, de pie frente a estantes con frascos de vidrio de colores"></div>
+      <figcaption>Referencia visual de la protagonista: la enfermera del videoclip “the cure”.</figcaption>
+    </figure>
+
+    <div class="char-text reveal">
+      <span class="kicker">Personaje principal</span>
+      <h2>La Enfermera</h2>
+      <p>Protagonista y única corredora del juego. Está inspirada en la enfermera del videoclip de “the cure” de Olivia Rodrigo y conserva su vestimenta. Su misión es sobrevivir el mayor tiempo posible para que no le apaguen el corazón.</p>
+
+      <h3>Habilidades</h3>
+      <ul class="chips">
+        <li>Correr sin parar</li>
+        <li>Saltar (Flecha Arriba)</li>
+        <li>Agacharse y deslizarse (Flecha Abajo)</li>
+        <li>Resistir 3 golpes</li>
+        <li>1,5 s de invulnerabilidad parpadeando</li>
+      </ul>
+
+      <h3>Rasgos estéticos</h3>
+      <ul class="traits">
+        <li><i style="background:#F2A7B2"></i>Uniforme rosa claro con botones</li>
+        <li><i style="background:#FFF7F2;border:1px solid #d9b8bd"></i>Cofia blanca con cruz carmín</li>
+        <li><i style="background:#3a2a2a"></i>Pelo oscuro recogido en ondas</li>
+        <li><i style="background:#C8202F"></i>Labios rojos carmín</li>
+      </ul>
+
+      <h3>Animaciones</h3>
+      <p class="small">Llamada (menú) · Correr · Saltar · Agacharse · Caer (derrota)</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. MECÁNICAS Y CONTROLES -->
+<section id="mecanicas" class="section">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <span class="kicker">Mecánicas y controles</span>
+      <h2>Salta, agáchate y resiste</h2>
+      <p>Es un carril único: no cambias de carril, solo saltas o te agachas. La enfermera avanza sola.</p>
+    </header>
+
+    <div class="controls reveal">
+      <div class="control"><kbd>↑</kbd><span><b>Flecha Arriba</b> saltar (solo desde el suelo, sin doble salto)</span></div>
+      <div class="control"><kbd>↓</kbd><span><b>Flecha Abajo</b> agacharse mientras la mantienes</span></div>
+      <div class="control"><kbd>Enter</kbd><span><b>Enter</b> elegir en los menús</span></div>
+      <div class="control"><kbd>Esc</kbd><span><b>Esc</b> pausar el juego</span></div>
+      <div class="control"><kbd>R</kbd><span><b>R</b> jugar de nuevo en la pantalla final</span></div>
+    </div>
+
+    <h3 class="center reveal">Obstáculos</h3>
+    <div class="table-scroll reveal">
+      <table class="obst">
+        <thead><tr><th>Obstáculo</th><th>Tamaño</th><th>Categoría</th><th>Dónde aparece</th><th>Acción</th></tr></thead>
+        <tbody>
+          <tr><td><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6v3l-1 1v2.5c3 1 5 3.6 5 7V20a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4.5c0-3.4 2-6 5-7V6L9 5z" fill="#F2728E"/><rect x="9" y="1" width="6" height="2" fill="#8B5A3C"/></svg> Antídoto (frasco)</td><td>Pequeño</td><td><span class="badge low">Bajo</span></td><td>Sobre el piso</td><td>Salto corto</td></tr>
+          <tr><td><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6v3l-1 1v2.5c3 1 5 3.6 5 7V20a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4.5c0-3.4 2-6 5-7V6L9 5z" fill="#6CCBBA"/><rect x="9" y="1" width="6" height="2" fill="#8B5A3C"/></svg> Antídoto (frasco)</td><td>Grande</td><td><span class="badge low">Bajo</span></td><td>Sobre el piso, más ancho y alto</td><td>Salto completo</td></tr>
+          <tr><td><img class="ico" src="img/heart_red.png" alt=""> Corazón rojo</td><td>Pequeño</td><td><span class="badge low">Bajo</span></td><td>Flota a ras del piso</td><td>Salto corto</td></tr>
+          <tr><td><img class="ico" src="img/heart_red.png" alt=""> Corazón rojo</td><td>Mediano</td><td><span class="badge high">Alto</span></td><td>Flota a la altura del pecho y la cabeza</td><td>Agacharse</td></tr>
+          <tr><td><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="11.4" y="0" width="1.2" height="9" fill="#8A8F92"/><path d="M12 8c4 0 7 3 7.5 6H4.5C5 11 8 8 12 8z" fill="#D6B16A"/><rect x="3" y="14" width="18" height="1.6" fill="#D6B16A"/><g fill="#FFA53D"><ellipse cx="6" cy="12.5" rx="1" ry="1.6"/><ellipse cx="12" cy="12.5" rx="1" ry="1.6"/><ellipse cx="18" cy="12.5" rx="1" ry="1.6"/></g></svg> Candelabro colgante</td><td>Único</td><td><span class="badge high">Alto</span></td><td>Cuelga del techo hasta la altura de la cabeza</td><td>Agacharse</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="two-col rules">
+      <article class="card reveal">
+        <h3>Reglas del sistema</h3>
+        <ul class="list">
+          <li>Cada segundo vivo suma <b>10 puntos</b>.</li>
+          <li>Cada choque resta <b>1 vida</b> de las 3 iniciales. El corazón tocado se vuelve negro, el antídoto se rompe y el candelabro se apaga.</li>
+          <li>Tras un choque hay <b>1,5 s de invulnerabilidad</b> con parpadeo.</li>
+          <li>No hay forma de recuperar vidas.</li>
+          <li>Cada <b>20 segundos</b> aparece una puerta de nivel que se abre: al cruzarla suben la velocidad y la canción, y cambia el color de las luces.</li>
+          <li>Al chocar baja el volumen de la música; si sigues sin perder, vuelve a subir.</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <h3>Condiciones de juego</h3>
+        <p><b>Victoria:</b> no existe. El juego es infinito.</p>
+        <p><b>Derrota:</b> cuando las vidas llegan a 0. La enfermera cae, las luces se apagan y aparece <i>“Juego Terminado · Perdiste… no tuviste la cura”</i> con la puntuación final.</p>
+        <p><b>Récord:</b> el récord inicial es de 500 puntos. Si lo superas, la pantalla final añade <i>“¡Nuevo récord!”</i>. Los cinco mejores puntajes se guardan en tu navegador.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 6. DATOS E INFOGRAFÍA -->
+<section id="datos" class="section alt">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <span class="kicker">Datos e infografía</span>
+      <h2>The Cure Run en números</h2>
+      <p>Los parámetros clave del diseño del juego.</p>
+    </header>
+
+    <div class="stats">
+      <div class="stat reveal"><b data-count="3">0</b><span>vidas iniciales</span></div>
+      <div class="stat reveal"><b data-count="10">0</b><span>puntos por segundo vivo</span></div>
+      <div class="stat reveal"><b data-count="8">0</b><span>velocidad inicial (u/s)</span></div>
+      <div class="stat reveal"><b data-count="25">0</b><span>velocidad tope (u/s)</span></div>
+      <div class="stat reveal"><b data-count="20">0</b><span>segundos por nivel</span></div>
+      <div class="stat reveal"><b data-count="5">0</b><span>tipos de obstáculo</span></div>
+      <div class="stat reveal"><b data-count="500">0</b><span>récord inicial (pts)</span></div>
+      <div class="stat reveal"><b data-count="4">0</b><span>animaciones principales</span></div>
+    </div>
+
+    <div class="two-col infographics">
+      <article class="card reveal">
+        <h3>Progresión de velocidad por nivel</h3>
+        <p class="small">Cada puerta de nivel (cada 20 s) aumenta la velocidad hasta el tope. Valores por defecto: +10 % por nivel.</p>
+        <div id="speedChart" class="bars" data-start="8" data-pct="10" data-max="25" role="img" aria-label="Gráfico de barras de la velocidad por nivel, de 8 a 25 unidades por segundo"></div>
+      </article>
+
+      <article class="card reveal">
+        <h3>Obstáculos por categoría</h3>
+        <div class="split" role="img" aria-label="3 obstáculos bajos y 2 altos">
+          <div class="low" style="flex:3"><b>3</b> bajos<br><small>se esquivan saltando</small></div>
+          <div class="high" style="flex:2"><b>2</b> altos<br><small>se esquivan agachándose</small></div>
+        </div>
+        <h3 class="mt">Paleta del mundo</h3>
+        <ul class="swatches">
+          <li><i style="background:#5F8F8A"></i><span>Verde azulado<br><small>#5F8F8A</small></span></li>
+          <li><i style="background:#EDE9D0"></i><span>Crema<br><small>#EDE9D0</small></span></li>
+          <li><i style="background:#A9CFA3"></i><span>Verde menta<br><small>#A9CFA3</small></span></li>
+          <li><i style="background:#BCC8D8"></i><span>Gris azulado<br><small>#BCC8D8</small></span></li>
+          <li><i style="background:#F2A7B2"></i><span>Rosa chicle<br><small>#F2A7B2</small></span></li>
+          <li><i style="background:#C8202F"></i><span>Rojo carmín<br><small>#C8202F</small></span></li>
+          <li><i style="background:#1A1A1A"></i><span>Negro tinta<br><small>#1A1A1A</small></span></li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="gallery reveal" aria-label="Arte del mundo del juego">
+      <figure><img src="img/poster_heart.png" alt="Afiche de anatomía del corazón del pasillo" loading="lazy"><figcaption>Afiche del corazón</figcaption></figure>
+      <figure><img src="img/poster_chart.png" alt="Afiche con la tabla de registro del paciente" loading="lazy"><figcaption>Registro del paciente</figcaption></figure>
+      <figure><img src="img/sign_cure.png" alt="Cartel rosa con el texto the cure" loading="lazy"><figcaption>Cartel “the cure”</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 7. DESPLIEGUE Y EJECUCIÓN -->
+<section id="jugar" class="section play">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <span class="kicker">Jugar ahora</span>
+      <h2>Entra al pasillo</h2>
+      <p>El juego se abre en una página propia, directamente en Unity WebGL.</p>
+    </header>
+
+    <div class="play-card reveal">
+      <img src="img/heart_red.png" alt="" class="play-heart" width="72" height="72">
+      <a class="btn btn-primary btn-xl" href="juego/index.html" target="_blank" rel="noopener">JUGAR AHORA</a>
+      <p class="small">Se abre en una pestaña nueva. Haz clic dentro del juego para activar el teclado y usa el botón “Pantalla completa”.</p>
+    </div>
+
+    <div class="two-col">
+      <article class="card reveal">
+        <h3>Requisitos mínimos</h3>
+        <ul class="list">
+          <li>Computador o laptop con <b>teclado</b> (no funciona con el celular).</li>
+          <li>Navegador actualizado: Chrome, Edge o Firefox con <b>WebGL 2</b>.</li>
+          <li>4 GB de RAM y una tarjeta gráfica común.</li>
+          <li>Conexión estable: el juego pesa varios MB.</li>
+          <li>Audio activado: la canción reacciona al juego.</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <h3>Si algo no funciona</h3>
+        <ul class="list">
+          <li>La primera carga tarda unos segundos: espera a que termine la barra.</li>
+          <li>Pantalla negra o congelada: recarga con <b>Ctrl + F5</b>.</li>
+          <li>Si no suena, haz clic dentro del juego: el navegador bloquea el audio hasta la primera interacción.</li>
+          <li>Prueba otro navegador o cierra pestañas pesadas.</li>
+          <li>Los récords se guardan en tu navegador; cada jugador ve los suyos.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CREADORES -->
+<section id="creadores" class="section alt">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <span class="kicker">Creadores</span>
+      <h2>Quiénes hicieron The Cure Run</h2>
+    </header>
+    <div class="creators reveal">
+      <article class="creator"><div class="avatar">DM</div><h3>Denis Medrano Carrasco</h3><p>Creador del juego</p></article>
+      <article class="creator"><div class="avatar">AP</div><h3>Ariana Patzi Gonzales</h3><p>Creadora del juego</p></article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot">
+    <div>
+      <a class="brand" href="#inicio"><img src="img/heart_red.png" alt="" width="30" height="30"><span>The Cure Run</span></a>
+      <p>Proyecto de la asignatura Game Development · Unidad 3.<br>Creado por <b>Denis Medrano Carrasco</b> y <b>Ariana Patzi Gonzales</b>.</p>
+    </div>
+    <nav aria-label="Enlaces del pie">
+      <a href="#historia">Historia</a>
+      <a href="#personaje">Personaje</a>
+      <a href="#mecanicas">Mecánicas</a>
+      <a href="#datos">Datos</a>
+      <a href="#creadores">Creadores</a>
+      <a href="juego/index.html" target="_blank" rel="noopener">Jugar ahora</a>
+    </nav>
+  </div>
+  <p class="legal wrap">Proyecto académico sin fines de lucro, inspirado en el videoclip de “the cure” de Olivia Rodrigo. La canción, el videoclip y la imagen de referencia pertenecen a sus titulares.</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
