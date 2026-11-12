@@ -1,6 +1,6 @@
-# DM / GAME ARCHIVE
+# YOU SEEM PRETTY SAD GAMES
 
-**Dos videojuegos. Un solo portal.** Proyecto de Game Development desarrollado en Unity y publicado mediante GitHub Pages.
+**Dos videojuegos. Un solo portal, con una identidad visual rosa y morado pastel.** Proyecto de Game Development desarrollado en Unity y publicado mediante GitHub Pages.
 
 **Portal unificado:** https://denistae.github.io/TheCureRun_Portal_GitHub/
 
