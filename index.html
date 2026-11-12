@@ -1,330 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Cure Run | Endless runner 3D inspirado en "the cure"</title>
-  <meta name="description" content="The Cure Run: corredor infinito 3D en un pasillo de hospital retro. Una enfermera corre para que no le apaguen el corazón. Juega gratis en el navegador.">
-  <meta name="theme-color" content="#43121c">
-  <link rel="icon" href="img/favicon.ico">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0d111b">
+<meta name="description" content="Portal oficial de videojuegos de Denis Medrano Carrasco: The Cure Run y Pretty Dead Girl. Dos mundos desarrollados en Unity, jugables desde un mismo lugar.">
+<title>MEDRANO / GAME ARCHIVE — The Cure Run + Pretty Dead Girl</title>
+<link rel="icon" href="img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0c12;--ink:#f8f5f5;--muted:#adadba;--line:#383440;--pink:#f64c9c;--red:#e54851;--violet:#b788ef;--teal:#a6d8ce}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}img{max-width:100%;display:block}
+::selection{background:var(--pink);color:#100b15}.wrap{width:min(1280px,calc(100% - 64px));margin:auto}
+.eyebrow{font:800 12px "DM Sans";text-transform:uppercase;letter-spacing:.24em;color:var(--pink)}.tiny{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+header.top{position:sticky;top:0;z-index:30;border-bottom:1px solid #ffffff1e;background:#0c0d14ec;backdrop-filter:blur(18px)}.top-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.wordmark{font:900 26px/1 "Barlow Condensed";letter-spacing:.09em}.wordmark span{color:var(--pink)}.wordmark small{display:block;font:700 9px "DM Sans";letter-spacing:.27em;color:var(--muted);margin-top:6px}.nav{display:flex;align-items:center;gap:26px}.nav a{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;transition:color .2s}.nav a:hover{color:var(--pink)}.nav .nav-accent{border:1px solid var(--pink);padding:12px 17px;color:var(--pink)}.nav .nav-accent:hover{background:var(--pink);color:#110914}
+.hero{position:relative;min-height:660px;display:flex;align-items:center;background:radial-gradient(ellipse at 78% 40%,#79285045,transparent 47%),linear-gradient(145deg,#19101d,#0c1019 61%,#17101a);border-bottom:1px solid var(--line);overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b0c12eb 12%,#0b0c1270 65%,#0b0c12a0),url("img/captura.jpg") center/cover;opacity:.24;filter:saturate(.5)}.hero:after{content:"02 GAMES / ONE PORTAL";position:absolute;right:-30px;bottom:25px;font:900 clamp(80px,14vw,260px)/.8 "Barlow Condensed";letter-spacing:-.04em;color:#ffffff07;white-space:nowrap;pointer-events:none}.hero-content{position:relative;z-index:1;padding:90px 0 110px}.hero-topline{display:flex;gap:14px;align-items:center}.dash{display:inline-block;width:28px;height:2px;background:var(--pink)}.hero h1{font:900 clamp(76px,12vw,176px)/.77 "Barlow Condensed";letter-spacing:-.042em;text-transform:uppercase;max-width:1000px;margin:30px 0}.hero h1 em{font-style:normal;color:var(--pink)}.hero-desc{font-size:17px;line-height:1.8;color:#d4cdd6;max-width:610px}.hero-buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}.action{border:1px solid #ffffff40;padding:15px 23px;display:inline-flex;justify-content:center;align-items:center;gap:18px;font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s,background .2s,border-color .2s}.action:hover{transform:translateY(-3px)}.action.primary{background:var(--pink);border-color:var(--pink);color:#160911}.action.secondary:hover{background:#ffffff16}.hero-footer{display:flex;gap:25px;align-items:center;margin-top:70px;color:var(--muted);font-size:11px;letter-spacing:.13em;text-transform:uppercase}.hero-footer b{color:#f2e0ec}
+.index-strip{background:#16161f;border-bottom:1px solid var(--line)}.index-grid{display:grid;grid-template-columns:1fr 1fr}.index-link{display:flex;gap:20px;align-items:center;padding:23px 18px;border-right:1px solid var(--line);transition:background .2s}.index-link:hover{background:#22202b}.index-num{font:900 47px "Barlow Condensed";color:#ffffff25}.index-title{font:800 22px "Barlow Condensed";letter-spacing:.07em;text-transform:uppercase}.index-meta{display:block;margin-top:3px;color:#aaa4b2;font-size:11px;letter-spacing:.16em}.index-arrow{margin-left:auto;color:var(--pink);font-size:25px}
+.section{padding:105px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:40px}.section-title{font:900 clamp(55px,7vw,100px)/.9 "Barlow Condensed";letter-spacing:-.02em;text-transform:uppercase;margin:12px 0 0}.section-summary{max-width:400px;color:var(--muted);font-size:14px;line-height:1.8}.line{height:1px;background:var(--line)}
+.game-block{position:relative}.game-block.cure{background:#12171a}.game-block.dead{background:#180e1b}.game-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;margin-bottom:28px}.game-photo{aspect-ratio:16/10;overflow:hidden;border:1px solid #ffffff32;position:relative}.game-photo img{width:100%;height:100%;object-fit:cover}.game-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,#0806109c)}.game-number{position:absolute;top:17px;left:18px;z-index:1;border:1px solid #ffffff60;padding:7px 10px;font:800 12px "DM Sans"}.game-copy{border:1px solid #ffffff29;padding:30px 34px;display:flex;flex-direction:column;justify-content:center;background:#ffffff07}.game-copy h3{font:900 51px/.95 "Barlow Condensed";text-transform:uppercase;letter-spacing:.01em;margin:12px 0 16px}.game-copy p{font-size:14px;line-height:1.85;color:#c6c1cb;margin:0 0 23px}.tag-row{display:flex;gap:8px;flex-wrap:wrap}.tag-row span{border:1px solid #ffffff42;padding:7px 10px;font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.play-header{display:flex;align-items:center;justify-content:space-between;gap:20px;border:1px solid #ffffff37;padding:17px 19px;background:#0a0a11}.play-header strong{font:800 21px "Barlow Condensed";text-transform:uppercase;letter-spacing:.07em}.play-header .right{display:flex;align-items:center;gap:18px}.play-status{color:#aaa8ae;font-size:11px;text-transform:uppercase;letter-spacing:.16em}.start{background:var(--pink);color:#190c17;border:0;font-weight:900;letter-spacing:.15em;padding:14px 26px;font-size:12px;min-width:125px}.start:hover{filter:brightness(1.1)}.start:disabled{background:#39333e;color:#d1c7d1;cursor:default}.viewport{position:relative;width:100%;aspect-ratio:16/9;min-height:250px;border:1px solid #ffffff38;border-top:0;background:#050409;display:grid;place-items:center;overflow:hidden}.viewport iframe{width:100%;height:100%;border:0;display:block;background:#000}.standby{text-align:center;padding:35px}.standby-symbol{display:block;font:900 100px/.7 "Barlow Condensed";color:#ffffff12}.standby h4{font:900 clamp(30px,4vw,55px) "Barlow Condensed";letter-spacing:.08em;text-transform:uppercase;margin:25px 0 10px}.standby p{color:#aaa6b5;font-size:13px}.game-block.cure .start{background:#f1939e}.game-block.cure .eyebrow{color:#f1939e}.game-block.dead .start{background:#f257b5}.game-block.dead .eyebrow{color:#f257b5}.game-help{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:15px 0;color:#aaa7b1;font-size:12px}.game-help b{color:#eee}
+.about{background:#0e0d15}.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:45px}.about-copy{font-size:16px;line-height:1.9;color:#c8c2d0;max-width:720px}.team{display:grid;gap:12px}.person{border:1px solid #ffffff30;padding:22px;display:flex;align-items:center;gap:18px;background:#ffffff05}.avatar{height:57px;width:57px;display:grid;place-items:center;background:#5e2855;color:#ffe4f3;font:900 24px "Barlow Condensed"}.person b{display:block;font-size:14px}.person a{display:inline-block;margin-top:7px;color:#f28dc9;font-size:11px;letter-spacing:.13em;font-weight:800}.foot{padding:30px 0;display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);font-size:12px;color:#a8a3b2}.foot b{color:#fff}
+@media(max-width:820px){.wrap{width:min(100% - 34px,1280px)}.top-inner{min-height:70px}.nav{gap:13px}.nav a{font-size:10px}.nav a:not(.nav-accent){display:none}.hero{min-height:590px}.hero-content{padding:75px 0}.hero h1{font-size:clamp(75px,14vw,130px)}.game-layout,.about-grid{grid-template-columns:1fr}.section{padding:70px 0}.section-head{display:block}.section-summary{margin-top:20px}.game-copy{min-height:280px}.index-grid{grid-template-columns:1fr}.index-link:first-child{border-bottom:1px solid var(--line)}.play-header{align-items:flex-start;flex-wrap:wrap}.hero-footer{flex-wrap:wrap;margin-top:45px}}
+@media(max-width:500px){.hero h1{font-size:73px}.hero-buttons .action{width:100%}.game-copy h3{font-size:43px}.game-copy{padding:22px}.play-header .right{width:100%;justify-content:space-between}.play-status{font-size:10px}.start{min-width:105px}.foot{flex-direction:column}.nav .nav-accent{padding:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.action{transition:none}}
+</style>
 </head>
 <body>
-
-<a class="skip" href="#inicio">Saltar al contenido</a>
-
-<!-- 1. ENCABEZADO DE NAVEGACIÓN -->
-<header class="site-header">
-  <div class="wrap nav">
-    <a class="brand" href="#inicio" aria-label="The Cure Run, inicio">
-      <img src="img/heart_red.png" alt="" width="34" height="34">
-      <span>The Cure Run</span>
-    </a>
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
-      <span></span><span></span><span></span>
-    </button>
-    <nav id="menu" class="menu" aria-label="Navegación principal">
-      <a href="#historia">Historia</a>
-      <a href="#personaje">Personaje</a>
-      <a href="#mecanicas">Mecánicas</a>
-      <a href="#datos">Datos</a>
-      <a class="pill" href="juego/index.html" target="_blank" rel="noopener">Jugar ahora</a>
-    </nav>
-  </div>
-</header>
-
+<header class="top"><div class="wrap top-inner">
+<a class="wordmark" href="#inicio" aria-label="Volver al inicio">DM<span>/</span> GAME ARCHIVE<small>DENIS MEDRANO CARRASCO · DEVELOPER</small></a>
+<nav class="nav" aria-label="Navegación del portal"><a href="#seleccion">Juegos</a><a href="#the-cure-run">The Cure Run</a><a href="#pretty-dead-girl">Pretty Dead Girl</a><a href="#equipo">Equipo</a><a class="nav-accent" href="#seleccion">PLAY / 02 ↗</a></nav>
+</div></header>
 <main>
-
-<!-- 2. SECCIÓN PRINCIPAL -->
-<section id="inicio" class="hero">
-  <div class="floaters" aria-hidden="true">
-    <img src="img/heart_red.png" alt="" style="--x:6%;--s:34px;--d:9s;--t:0s">
-    <img src="img/heart_red.png" alt="" style="--x:18%;--s:20px;--d:12s;--t:2s">
-    <img src="img/heart_black.png" alt="" style="--x:44%;--s:26px;--d:14s;--t:4s">
-    <img src="img/heart_red.png" alt="" style="--x:63%;--s:30px;--d:10s;--t:1s">
-    <img src="img/heart_red.png" alt="" style="--x:82%;--s:22px;--d:13s;--t:3s">
-    <img src="img/heart_black.png" alt="" style="--x:93%;--s:30px;--d:11s;--t:5s">
-  </div>
-
-  <div class="wrap hero-grid">
-    <div class="hero-text reveal">
-      <span class="tag">ENDLESS RUNNER 3D</span>
-      <h1>The Cure<br>Run</h1>
-      <p class="lead">No dejes que apaguen tu corazón.</p>
-      <p class="desc">Una enfermera corre sin fin por el pasillo de un hospital retro de tonos pastel. Antídotos, candelabros y corazones intentan frenarla: cada golpe le quita una vida. No existe la victoria; la meta es aguantar más que la vez anterior y superar tu propio récord antes de perder las tres vidas.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="juego/index.html" target="_blank" rel="noopener">JUGAR AHORA</a>
-        <a class="btn btn-ghost" href="#historia">Conocer la historia</a>
-      </div>
-
-      <ul class="metrics" aria-label="Métricas rápidas">
-        <li><strong>3</strong><span>vidas iniciales</span></li>
-        <li><strong class="keys"><kbd>↑</kbd><kbd>↓</kbd></strong><span>saltar / agacharse</span></li>
-        <li><strong>20 s</strong><span>sube de nivel</span></li>
-        <li><strong>500</strong><span>récord inicial (pts)</span></li>
-      </ul>
-    </div>
-
-    <figure class="hero-art reveal">
-      <div class="monitor">
-        <img src="img/captura.jpg" alt="Captura del menú de The Cure Run: título, botones Jugar, Mejores récords y Salir sobre el pasillo del hospital">
-      </div>
-      <figcaption>Captura del juego · pasillo retro y puertas “O R” al fondo</figcaption>
-    </figure>
-  </div>
-  <div class="floor" aria-hidden="true"></div>
-</section>
-
-<!-- 3. HISTORIA -->
-<section id="historia" class="section">
-  <div class="wrap">
-    <header class="section-head reveal">
-      <span class="kicker">Historia</span>
-      <h2>Un pasillo sin final</h2>
-      <p>Un mundo de cartón pintado, dulce e inquietante a la vez, tomado de la estética del videoclip de “the cure”.</p>
-    </header>
-
-    <div class="two-col">
-      <article class="card reveal">
-        <h3>Contexto narrativo</h3>
-        <p>The Cure Run transcurre en el pasillo recto y sin fin de un hospital retro de los años 50. Las paredes son de un verde azulado desgastado, con azulejos blancos en la parte baja y puertas de consultorio con ventanillas de persiana a ambos lados. El piso es un tablero de cuadros menta, crema y gris azulado.</p>
-        <p>Los tragaluces del techo bañan el espacio de un rosa suave, y entre ellos cuelgan candelabros que iluminan el camino y, a la vez, bloquean la parte alta. Al fondo se ven siempre las puertas dobles rosadas del quirófano (“O R”) y una pared de bloques de vidrio que brilla en rosa. Esas puertas nunca se alcanzan: son la meta que se aleja.</p>
-      </article>
-
-      <article class="card reveal">
-        <h3>Arco argumental</h3>
-        <p>Las luces se apagan y vuelven a encenderse en rosa. Una enfermera aparece de pie en medio del pasillo, de espaldas, con las puertas cerradas al fondo, y empieza a correr hacia ellas. Delante de ella flota un corazón rojo: es el suyo.</p>
-        <p>A su alrededor, los antídotos y los candelabros quieren frenarla, y cada corazón que roza se apaga. Ella corre para que no le apaguen el suyo y para no dejarse curar de lo que siente: es una metáfora sobre resistirse a que “la cura” borre lo que sentimos. Como no hay meta, solo se puede aguantar más.</p>
-      </article>
-    </div>
-
-    <ol class="timeline reveal" aria-label="Momentos de la historia">
-      <li><span>1</span><h4>La entrada</h4><p>Las luces parpadean y la enfermera aparece frente a las puertas “O R”, en pose de llamada.</p></li>
-      <li><span>2</span><h4>La carrera</h4><p>Las puertas se abren, cuenta regresiva 3, 2, 1 y empieza a correr sin detenerse.</p></li>
-      <li><span>3</span><h4>Las puertas de nivel</h4><p>Cada 20 segundos cruza una puerta que se abre: el pasillo cambia de luz y todo va más rápido.</p></li>
-      <li><span>4</span><h4>La derrota</h4><p>Con la tercera vida perdida cae, las luces se apagan y aparece “Perdiste… no tuviste la cura”.</p></li>
-    </ol>
-  </div>
-</section>
-
-<!-- 4. PERSONAJE PRINCIPAL -->
-<section id="personaje" class="section alt">
-  <div class="wrap char-grid">
-    <figure class="char-photo reveal">
-      <div class="arch"><img src="img/enfermera.jpg" alt="Referencia visual del personaje: enfermera de uniforme rosa claro y cofia blanca, de pie frente a estantes con frascos de vidrio de colores"></div>
-      <figcaption>Referencia visual de la protagonista: la enfermera del videoclip “the cure”.</figcaption>
-    </figure>
-
-    <div class="char-text reveal">
-      <span class="kicker">Personaje principal</span>
-      <h2>La Enfermera</h2>
-      <p>Protagonista y única corredora del juego. Está inspirada en la enfermera del videoclip de “the cure” de Olivia Rodrigo y conserva su vestimenta. Su misión es sobrevivir el mayor tiempo posible para que no le apaguen el corazón.</p>
-
-      <h3>Habilidades</h3>
-      <ul class="chips">
-        <li>Correr sin parar</li>
-        <li>Saltar (Flecha Arriba)</li>
-        <li>Agacharse y deslizarse (Flecha Abajo)</li>
-        <li>Resistir 3 golpes</li>
-        <li>1,5 s de invulnerabilidad parpadeando</li>
-      </ul>
-
-      <h3>Rasgos estéticos</h3>
-      <ul class="traits">
-        <li><i style="background:#F2A7B2"></i>Uniforme rosa claro con botones</li>
-        <li><i style="background:#FFF7F2;border:1px solid #d9b8bd"></i>Cofia blanca con cruz carmín</li>
-        <li><i style="background:#3a2a2a"></i>Pelo oscuro recogido en ondas</li>
-        <li><i style="background:#C8202F"></i>Labios rojos carmín</li>
-      </ul>
-
-      <h3>Animaciones</h3>
-      <p class="small">Llamada (menú) · Correr · Saltar · Agacharse · Caer (derrota)</p>
-    </div>
-  </div>
-</section>
-
-<!-- 5. MECÁNICAS Y CONTROLES -->
-<section id="mecanicas" class="section">
-  <div class="wrap">
-    <header class="section-head reveal">
-      <span class="kicker">Mecánicas y controles</span>
-      <h2>Salta, agáchate y resiste</h2>
-      <p>Es un carril único: no cambias de carril, solo saltas o te agachas. La enfermera avanza sola.</p>
-    </header>
-
-    <div class="controls reveal">
-      <div class="control"><kbd>↑</kbd><span><b>Flecha Arriba</b> saltar (solo desde el suelo, sin doble salto)</span></div>
-      <div class="control"><kbd>↓</kbd><span><b>Flecha Abajo</b> agacharse mientras la mantienes</span></div>
-      <div class="control"><kbd>Enter</kbd><span><b>Enter</b> elegir en los menús</span></div>
-      <div class="control"><kbd>Esc</kbd><span><b>Esc</b> pausar el juego</span></div>
-      <div class="control"><kbd>R</kbd><span><b>R</b> jugar de nuevo en la pantalla final</span></div>
-    </div>
-
-    <h3 class="center reveal">Obstáculos</h3>
-    <div class="table-scroll reveal">
-      <table class="obst">
-        <thead><tr><th>Obstáculo</th><th>Tamaño</th><th>Categoría</th><th>Dónde aparece</th><th>Acción</th></tr></thead>
-        <tbody>
-          <tr><td><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6v3l-1 1v2.5c3 1 5 3.6 5 7V20a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4.5c0-3.4 2-6 5-7V6L9 5z" fill="#F2728E"/><rect x="9" y="1" width="6" height="2" fill="#8B5A3C"/></svg> Antídoto (frasco)</td><td>Pequeño</td><td><span class="badge low">Bajo</span></td><td>Sobre el piso</td><td>Salto corto</td></tr>
-          <tr><td><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6v3l-1 1v2.5c3 1 5 3.6 5 7V20a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4.5c0-3.4 2-6 5-7V6L9 5z" fill="#6CCBBA"/><rect x="9" y="1" width="6" height="2" fill="#8B5A3C"/></svg> Antídoto (frasco)</td><td>Grande</td><td><span class="badge low">Bajo</span></td><td>Sobre el piso, más ancho y alto</td><td>Salto completo</td></tr>
-          <tr><td><img class="ico" src="img/heart_red.png" alt=""> Corazón rojo</td><td>Pequeño</td><td><span class="badge low">Bajo</span></td><td>Flota a ras del piso</td><td>Salto corto</td></tr>
-          <tr><td><img class="ico" src="img/heart_red.png" alt=""> Corazón rojo</td><td>Mediano</td><td><span class="badge high">Alto</span></td><td>Flota a la altura del pecho y la cabeza</td><td>Agacharse</td></tr>
-          <tr><td><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="11.4" y="0" width="1.2" height="9" fill="#8A8F92"/><path d="M12 8c4 0 7 3 7.5 6H4.5C5 11 8 8 12 8z" fill="#D6B16A"/><rect x="3" y="14" width="18" height="1.6" fill="#D6B16A"/><g fill="#FFA53D"><ellipse cx="6" cy="12.5" rx="1" ry="1.6"/><ellipse cx="12" cy="12.5" rx="1" ry="1.6"/><ellipse cx="18" cy="12.5" rx="1" ry="1.6"/></g></svg> Candelabro colgante</td><td>Único</td><td><span class="badge high">Alto</span></td><td>Cuelga del techo hasta la altura de la cabeza</td><td>Agacharse</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="two-col rules">
-      <article class="card reveal">
-        <h3>Reglas del sistema</h3>
-        <ul class="list">
-          <li>Cada segundo vivo suma <b>10 puntos</b>.</li>
-          <li>Cada choque resta <b>1 vida</b> de las 3 iniciales. El corazón tocado se vuelve negro, el antídoto se rompe y el candelabro se apaga.</li>
-          <li>Tras un choque hay <b>1,5 s de invulnerabilidad</b> con parpadeo.</li>
-          <li>No hay forma de recuperar vidas.</li>
-          <li>Cada <b>20 segundos</b> aparece una puerta de nivel que se abre: al cruzarla suben la velocidad y la canción, y cambia el color de las luces.</li>
-          <li>Al chocar baja el volumen de la música; si sigues sin perder, vuelve a subir.</li>
-        </ul>
-      </article>
-      <article class="card reveal">
-        <h3>Condiciones de juego</h3>
-        <p><b>Victoria:</b> no existe. El juego es infinito.</p>
-        <p><b>Derrota:</b> cuando las vidas llegan a 0. La enfermera cae, las luces se apagan y aparece <i>“Juego Terminado · Perdiste… no tuviste la cura”</i> con la puntuación final.</p>
-        <p><b>Récord:</b> el récord inicial es de 500 puntos. Si lo superas, la pantalla final añade <i>“¡Nuevo récord!”</i>. Los cinco mejores puntajes se guardan en tu navegador.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- 6. DATOS E INFOGRAFÍA -->
-<section id="datos" class="section alt">
-  <div class="wrap">
-    <header class="section-head reveal">
-      <span class="kicker">Datos e infografía</span>
-      <h2>The Cure Run en números</h2>
-      <p>Los parámetros clave del diseño del juego.</p>
-    </header>
-
-    <div class="stats">
-      <div class="stat reveal"><b data-count="3">0</b><span>vidas iniciales</span></div>
-      <div class="stat reveal"><b data-count="10">0</b><span>puntos por segundo vivo</span></div>
-      <div class="stat reveal"><b data-count="8">0</b><span>velocidad inicial (u/s)</span></div>
-      <div class="stat reveal"><b data-count="25">0</b><span>velocidad tope (u/s)</span></div>
-      <div class="stat reveal"><b data-count="20">0</b><span>segundos por nivel</span></div>
-      <div class="stat reveal"><b data-count="5">0</b><span>tipos de obstáculo</span></div>
-      <div class="stat reveal"><b data-count="500">0</b><span>récord inicial (pts)</span></div>
-      <div class="stat reveal"><b data-count="4">0</b><span>animaciones principales</span></div>
-    </div>
-
-    <div class="two-col infographics">
-      <article class="card reveal">
-        <h3>Progresión de velocidad por nivel</h3>
-        <p class="small">Cada puerta de nivel (cada 20 s) aumenta la velocidad hasta el tope. Valores por defecto: +10 % por nivel.</p>
-        <div id="speedChart" class="bars" data-start="8" data-pct="10" data-max="25" role="img" aria-label="Gráfico de barras de la velocidad por nivel, de 8 a 25 unidades por segundo"></div>
-      </article>
-
-      <article class="card reveal">
-        <h3>Obstáculos por categoría</h3>
-        <div class="split" role="img" aria-label="3 obstáculos bajos y 2 altos">
-          <div class="low" style="flex:3"><b>3</b> bajos<br><small>se esquivan saltando</small></div>
-          <div class="high" style="flex:2"><b>2</b> altos<br><small>se esquivan agachándose</small></div>
-        </div>
-        <h3 class="mt">Paleta del mundo</h3>
-        <ul class="swatches">
-          <li><i style="background:#5F8F8A"></i><span>Verde azulado<br><small>#5F8F8A</small></span></li>
-          <li><i style="background:#EDE9D0"></i><span>Crema<br><small>#EDE9D0</small></span></li>
-          <li><i style="background:#A9CFA3"></i><span>Verde menta<br><small>#A9CFA3</small></span></li>
-          <li><i style="background:#BCC8D8"></i><span>Gris azulado<br><small>#BCC8D8</small></span></li>
-          <li><i style="background:#F2A7B2"></i><span>Rosa chicle<br><small>#F2A7B2</small></span></li>
-          <li><i style="background:#C8202F"></i><span>Rojo carmín<br><small>#C8202F</small></span></li>
-          <li><i style="background:#1A1A1A"></i><span>Negro tinta<br><small>#1A1A1A</small></span></li>
-        </ul>
-      </article>
-    </div>
-
-    <div class="gallery reveal" aria-label="Arte del mundo del juego">
-      <figure><img src="img/poster_heart.png" alt="Afiche de anatomía del corazón del pasillo" loading="lazy"><figcaption>Afiche del corazón</figcaption></figure>
-      <figure><img src="img/poster_chart.png" alt="Afiche con la tabla de registro del paciente" loading="lazy"><figcaption>Registro del paciente</figcaption></figure>
-      <figure><img src="img/sign_cure.png" alt="Cartel rosa con el texto the cure" loading="lazy"><figcaption>Cartel “the cure”</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<!-- 7. DESPLIEGUE Y EJECUCIÓN -->
-<section id="jugar" class="section play">
-  <div class="wrap">
-    <header class="section-head reveal">
-      <span class="kicker">Jugar ahora</span>
-      <h2>Entra al pasillo</h2>
-      <p>El juego se abre en una página propia, directamente en Unity WebGL.</p>
-    </header>
-
-    <div class="play-card reveal">
-      <img src="img/heart_red.png" alt="" class="play-heart" width="72" height="72">
-      <a class="btn btn-primary btn-xl" href="juego/index.html" target="_blank" rel="noopener">JUGAR AHORA</a>
-      <p class="small">Se abre en una pestaña nueva. Haz clic dentro del juego para activar el teclado y usa el botón “Pantalla completa”.</p>
-    </div>
-
-    <div class="two-col">
-      <article class="card reveal">
-        <h3>Requisitos mínimos</h3>
-        <ul class="list">
-          <li>Computador o laptop con <b>teclado</b> (no funciona con el celular).</li>
-          <li>Navegador actualizado: Chrome, Edge o Firefox con <b>WebGL 2</b>.</li>
-          <li>4 GB de RAM y una tarjeta gráfica común.</li>
-          <li>Conexión estable: el juego pesa varios MB.</li>
-          <li>Audio activado: la canción reacciona al juego.</li>
-        </ul>
-      </article>
-      <article class="card reveal">
-        <h3>Si algo no funciona</h3>
-        <ul class="list">
-          <li>La primera carga tarda unos segundos: espera a que termine la barra.</li>
-          <li>Pantalla negra o congelada: recarga con <b>Ctrl + F5</b>.</li>
-          <li>Si no suena, haz clic dentro del juego: el navegador bloquea el audio hasta la primera interacción.</li>
-          <li>Prueba otro navegador o cierra pestañas pesadas.</li>
-          <li>Los récords se guardan en tu navegador; cada jugador ve los suyos.</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- CREADORES -->
-<section id="creadores" class="section alt">
-  <div class="wrap">
-    <header class="section-head reveal">
-      <span class="kicker">Creadores</span>
-      <h2>Quiénes hicieron The Cure Run</h2>
-    </header>
-    <div class="creators reveal">
-      <article class="creator"><div class="avatar">DM</div><h3>Denis Medrano Carrasco</h3><p>Creador del juego</p></article>
-      <article class="creator"><div class="avatar">AP</div><h3>Ariana Patzi Gonzales</h3><p>Creadora del juego</p></article>
-    </div>
-  </div>
-</section>
-
+<section class="hero" id="inicio"><div class="wrap hero-content">
+<div class="hero-topline"><span class="dash"></span><span class="eyebrow">Creative Games / Unity WebGL / 2026</span></div>
+<h1>TWO<br>WORLDS.<br><em>ONE PORTAL.</em></h1>
+<p class="hero-desc">Un hospital del que nunca sales. Un laberinto del que debes escapar. Dos universos con personalidad propia, reunidos en un único espacio para jugar sin descargas y sin salir de esta página.</p>
+<div class="hero-buttons"><a class="action primary" href="#the-cure-run">01 / THE CURE RUN <span>↗</span></a><a class="action secondary" href="#pretty-dead-girl">02 / PRETTY DEAD GIRL <span>↗</span></a></div>
+<div class="hero-footer"><span><b>DEVELOPER</b> DENIS MEDRANO CARRASCO</span><span>02 PROYECTOS JUGABLES</span><span>HECHO EN UNITY</span></div>
+</div></section>
+<div class="index-strip" id="seleccion"><div class="wrap index-grid">
+<a class="index-link" href="#the-cure-run"><span class="index-num">01</span><span><span class="index-title">THE CURE RUN</span><span class="index-meta">ENDLESS RUNNER / RETRO HOSPITAL</span></span><span class="index-arrow">↘</span></a>
+<a class="index-link" href="#pretty-dead-girl"><span class="index-num">02</span><span><span class="index-title">PRETTY DEAD GIRL</span><span class="index-meta">3D MAZE / OLIVIA'S NIGHTMARE</span></span><span class="index-arrow">↘</span></a>
+</div></div>
+<section class="section game-block cure" id="the-cure-run"><div class="wrap">
+<div class="section-head"><div><span class="eyebrow">01 / SURVIVE THE RUN</span><h2 class="section-title">THE CURE RUN.</h2></div><p class="section-summary">Un corredor infinito que mezcla la nostalgia de un hospital retro con la tensión de sobrevivir un obstáculo más.</p></div>
+<div class="game-layout"><div class="game-photo"><img src="img/captura.jpg" alt="Captura real de The Cure Run" loading="lazy"><span class="game-number">BUILD 01 / WEBGL</span></div><div class="game-copy"><span class="eyebrow">NO DEJES QUE APAGUEN TU CORAZÓN</span><h3>NO EXISTE<br>LA META.</h3><p>Una enfermera corre por un pasillo interminable. Salta sobre los obstáculos, agáchate ante los peligros altos y conserva tus tres vidas. Cada segundo cuenta para superar tu récord.</p><div class="tag-row"><span>↑ Saltar</span><span>↓ Agacharse</span><span>3 vidas</span><span>Arcade 3D</span></div></div></div>
+<div class="play-header"><strong>01 / LA SALA DE JUEGO</strong><div class="right"><span class="play-status" id="status-cure" aria-live="polite">ESPERANDO AL JUGADOR</span><button class="start" type="button" data-start="cure">START 01 ▶</button></div></div>
+<div class="viewport" id="viewport-cure"><div class="standby"><span class="standby-symbol">01</span><h4>READY TO RUN?</h4><p>El juego se cargará al presionar START.</p></div></div>
+<div class="game-help"><span>CONTROLES: <b>↑</b> SALTAR / <b>↓</b> AGACHARSE / <b>ESC</b> PAUSA</span><span>Haz clic dentro del juego para usar el teclado.</span></div>
+</div></section>
+<section class="section game-block dead" id="pretty-dead-girl"><div class="wrap">
+<div class="section-head"><div><span class="eyebrow">02 / ENTER THE NIGHTMARE</span><h2 class="section-title">PRETTY <span style="color:#f257b5">DEAD GIRL.</span></h2></div><p class="section-summary">Explora, recoge objetos y escapa de una pesadilla rosa y violeta mientras los enemigos patrullan el laberinto.</p></div>
+<div class="game-layout"><div class="game-photo"><img src="https://denistae.github.io/PrettyDeadGirl_Portal_GitHub/assets/menu.webp" alt="Menú real de Pretty Dead Girl: Olivia's Nightmare" loading="lazy"><span class="game-number">BUILD 02 / WEBGL</span></div><div class="game-copy"><span class="eyebrow">OLIVIA'S NIGHTMARE</span><h3>UNA PESADILLA<br>PARA EXPLORAR.</h3><p>Recorre tres niveles —Drop Dead, Purple y Stupid Song—, evita enemigos y busca los coleccionables. Cambia de cámara para descubrir rutas y llegar a la salida.</p><div class="tag-row"><span>WASD Movimiento</span><span>SHIFT Correr</span><span>C Cámara</span><span>ESC Pausa</span></div></div></div>
+<div class="play-header"><strong>02 / EL LABERINTO</strong><div class="right"><span class="play-status" id="status-dead" aria-live="polite">ESPERANDO AL JUGADOR</span><button class="start" type="button" data-start="dead">START 02 ▶</button></div></div>
+<div class="viewport" id="viewport-dead"><div class="standby"><span class="standby-symbol">02</span><h4>ENTER THE MAZE?</h4><p>El juego se cargará al presionar START.</p></div></div>
+<div class="game-help"><span>CONTROLES: <b>WASD</b> MOVER / <b>SHIFT</b> CORRER / <b>C</b> CÁMARA / <b>ESC</b> PAUSA</span><span>El juego se ejecuta en esta misma página.</span></div>
+</div></section>
+<section class="section about" id="equipo"><div class="wrap about-grid"><div><span class="eyebrow">BEHIND THE SCENES</span><h2 class="section-title">MADE TO<br>BE PLAYED.</h2><p class="about-copy">Dos experiencias nacidas en Unity y publicadas para que cualquier persona pueda probarlas desde el navegador. Este archivo reúne el proceso creativo y el trabajo de desarrollo de los proyectos.</p><div class="tag-row"><span>UNITY 6</span><span>C#</span><span>WEBGL</span><span>GITHUB PAGES</span></div></div>
+<div class="team"><div class="person"><div class="avatar">DM</div><div><b>Denis Medrano Carrasco</b><span class="tiny">Desarrollador</span><br><a href="https://github.com/DenisTae" target="_blank" rel="noopener noreferrer">GITHUB ↗</a></div></div><div class="person"><div class="avatar">AP</div><div><b>Ariana Patzi Gonzales</b><span class="tiny">Desarrolladora / Pretty Dead Girl</span><br><a href="https://github.com/aritozs673-maker" target="_blank" rel="noopener noreferrer">GITHUB ↗</a></div></div></div>
+</div></section>
 </main>
-
-  
-<footer class="site-footer">
-  <div class="wrap foot">
-    <div>
-      <a class="brand" href="#inicio"><img src="img/heart_red.png" alt="" width="30" height="30"><span>The Cure Run</span></a>
-      <p>Proyecto de la asignatura Game Development · Unidad 3.<br>Creado por <b>Denis Medrano Carrasco</b> y <b>Ariana Patzi Gonzales</b>.</p>
-    </div>
-    <nav aria-label="Enlaces del pie">
-      <a href="#historia">Historia</a>
-      <a href="#personaje">Personaje</a>
-      <a href="#mecanicas">Mecánicas</a>
-      <a href="#datos">Datos</a>
-      <a href="#creadores">Creadores</a>
-      <a href="juego/index.html" target="_blank" rel="noopener">Jugar ahora</a>
-    </nav>
-  </div>
-  <p class="legal wrap">Proyecto académico sin fines de lucro, inspirado en el videoclip de “the cure” de Olivia Rodrigo. La canción, el videoclip y la imagen de referencia pertenecen a sus titulares.</p>
-</footer>
-
-<script src="js/main.js"></script>
+<footer class="wrap foot"><span><b>DM / GAME ARCHIVE</b> © 2026 · PROYECTO ACADÉMICO</span><span>02 JUEGOS. UNA SOLA PÁGINA.</span></footer>
+<script>
+(function(){
+  const games={
+    cure:{src:"juego/",title:"The Cure Run"},
+    dead:{src:"https://denistae.github.io/PrettyDeadGirl_Portal_GitHub/game/",title:"Pretty Dead Girl"}
+  };
+  document.querySelectorAll("[data-start]").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      const id=btn.getAttribute("data-start");
+      const game=games[id];
+      const box=document.getElementById("viewport-"+id);
+      const status=document.getElementById("status-"+id);
+      if(!game||!box||box.querySelector("iframe"))return;
+      const frame=document.createElement("iframe");
+      frame.title=game.title+" — Unity WebGL";
+      frame.setAttribute("allow","fullscreen; autoplay; gamepad");
+      frame.setAttribute("allowfullscreen","");
+      frame.loading="eager";
+      frame.referrerPolicy="strict-origin-when-cross-origin";
+      frame.src=game.src;
+      box.replaceChildren(frame);
+      status.textContent="CARGANDO / EN JUEGO";
+      btn.disabled=true;
+      btn.textContent="INICIADO ✓";
+      frame.addEventListener("load",function(){status.textContent="JUEGO CARGADO";});
+    });
+  });
+})();
+</script>
 </body>
 </html>
