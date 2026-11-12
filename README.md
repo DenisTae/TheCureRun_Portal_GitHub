@@ -1,39 +1,40 @@
-# 🩺 The Cure Run
+# DM / GAME ARCHIVE
 
-**Endless runner 3D** con estética de hospital retro, inspirado en el videoclip de "the cure". Este repositorio contiene el **portal web** del juego y el build de Unity WebGL.
+**Dos videojuegos. Un solo portal.** Proyecto de Game Development desarrollado en Unity y publicado mediante GitHub Pages.
 
-> *No dejes que apaguen tu corazón.*
+**Portal unificado:** https://denistae.github.io/TheCureRun_Portal_GitHub/
 
-🎮 **Jugar:** https://denistae.github.io/TheCureRun_Portal_GitHub/
+## Videojuegos
 
-![Captura del juego](img/enfermera.jpg)
+| Videojuego | Género | Controles principales |
+|---|---|---|
+| The Cure Run | Endless runner 3D | ↑ saltar, ↓ agacharse, Esc pausa |
+| Pretty Dead Girl: Olivia's Nightmare | Laberinto 3D | WASD/flechas mover, Shift correr, C cámara, Esc pausa |
 
-## 📖 Resumen
+Los juegos se integran **en secciones de la misma página**, sin redirecciones. Cada sección dispone de un botón **START** propio y no crea su reproductor WebGL hasta que se presiona.
 
-Una enfermera corre sin fin por el pasillo de un hospital retro de tonos pastel. Antídotos, candelabros y corazones intentan frenarla: cada golpe le quita una vida. No existe la victoria, la meta es aguantar más que la vez anterior y superar tu propio récord antes de perder las tres vidas.
+## Desarrollo y créditos
 
-## ⚙️ Datos clave
+- **Denis Medrano Carrasco** — [GitHub](https://github.com/DenisTae)
+- **Ariana Patzi Gonzales** — [GitHub](https://github.com/aritozs673-maker) — desarrollo de Pretty Dead Girl.
 
-| | |
-|---|---|
-| Género | Endless runner 3D |
-| Vidas iniciales | 3 |
-| Controles | ↑ saltar · ↓ agacharse / deslizarse |
-| Subida de nivel | Cada 20 segundos |
-| Récord inicial | 500 puntos |
-| Invulnerabilidad | 1,5 s tras recibir un golpe |
-| Motor | Unity (exportado a WebGL) |
+Tecnologías: **Unity 6, C#, WebGL, HTML, CSS, JavaScript y GitHub Pages**.
 
-## 📁 Estructura
+## Integración técnica
 
-```
-index.html      Portal (historia, personaje, mecánicas, datos)
-css/            Estilos del portal
-js/             Interacciones del portal (menú, animaciones, contadores)
-img/            Imágenes y recursos gráficos
-fonts/          Tipografía Poppins
-juego/          Build de Unity WebGL (index.html, Build, TemplateData)
-```
+- `index.html`: portal único, diseño, menú, secciones y botones START.
+- `juego/`: compilación WebGL de The Cure Run alojada en este repositorio.
+- La sección Pretty Dead Girl utiliza su compilación WebGL publicada en `https://denistae.github.io/PrettyDeadGirl_Portal_GitHub/game/`, embebida en un iframe dentro del portal.
+- Los iframes se crean al pulsar el START correspondiente, no al cargar el portal.
 
-> Nota: el build usa compresión **Gzip con Decompression Fallback** para funcionar en GitHub Pages. Los archivos de `juego/Build` son pesados (el mayor ronda los 28 MB), por eso se suben con Git / GitHub Desktop y no desde la web de GitHub.
+**Importante:** el segundo juego aún depende de su repositorio original para servir sus archivos WebGL. No debes eliminar `PrettyDeadGirl_Portal_GitHub` hasta haber trasladado su carpeta `game/` al repositorio unificado, ajustado la ruta y comprobado ambos juegos.
 
+## Evidencias requeridas para Unidad 4
+
+1. Captura del encabezado con el nombre del desarrollador y ambos botones de selección.
+2. Captura de la sección Pretty Dead Girl antes de pulsar START.
+3. Captura de Pretty Dead Girl ejecutándose dentro del portal después de pulsar START.
+4. Captura equivalente de The Cure Run.
+5. Enlace público del portal unificado.
+
+La guía solicita actualizar el portal existente, no crear una página independiente para el segundo juego.
