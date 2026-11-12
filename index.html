@@ -113,6 +113,15 @@ header.top{background:rgba(250,236,247,.92);border-bottom:1px solid #d4bcd2;box-
 @media(max-width:500px){.wordmark{font-size:10px;letter-spacing:.035em}.wordmark .brand-heart{margin-right:2px}.hero h1{font-size:clamp(68px,17vw,94px)}.poster-content h4{font-size:55px}.poster-content p{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.standby,.poster-hint{transition:none;animation:none!important}}
 
+
+/* Créditos protagonistas: ambos desarrolladores al mismo nivel */
+.hero-creators{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:22px;max-width:960px;margin:44px 0 32px;padding:26px 30px;border:1px solid #d6b4d5;border-radius:24px;background:linear-gradient(125deg,#ffffffa8,#e8cdeeb0);box-shadow:0 14px 48px #9b6b9f1f}
+.hero-creator{min-width:0}
+.creator-role{display:block;font-size:11px;font-weight:800;letter-spacing:.21em;color:#936a8e;margin-bottom:10px}
+.hero-creator strong{display:block;font:800 clamp(29px,3.35vw,52px)/1.02 "Barlow Condensed",sans-serif;letter-spacing:.018em;color:#69446b}
+.hero-creator:last-child strong{color:#9c6396}
+.creator-join{color:#bd8caf;font:800 clamp(26px,3vw,45px) "Barlow Condensed",sans-serif}
+@media(max-width:720px){.hero-creators{gap:13px;padding:20px;grid-template-columns:1fr}.creator-join{font-size:23px;line-height:1}.hero-creator strong{font-size:clamp(32px,9vw,48px)}}
 </style>
 </head>
 <body>
@@ -124,9 +133,14 @@ header.top{background:rgba(250,236,247,.92);border-bottom:1px solid #d4bcd2;box-
 <section class="hero" id="inicio"><div class="wrap hero-content">
 <div class="hero-topline"><span class="dash"></span><span class="eyebrow">A little sad. A little lovely. / Games 2026</span></div>
 <h1>YOU SEEM<br><em>PRETTY SAD.</em></h1>
+<div class="hero-creators" aria-label="Desarrolladores de los videojuegos">
+  <div class="hero-creator"><span class="creator-role">DEVELOPER / 01</span><strong>DENIS MEDRANO<br>CARRASCO</strong></div>
+  <span class="creator-join" aria-hidden="true">&</span>
+  <div class="hero-creator"><span class="creator-role">DEVELOPER / 02</span><strong>ARIANA PATZI<br>GONZALES</strong></div>
+</div>
 <p class="hero-desc">Un poquito de melancolía, mucho rosa y dos mundos por descubrir. Sobrevive a la carrera o piérdete en una pesadilla: elige tu historia y juega aquí mismo.</p>
 <div class="hero-buttons"><a class="action primary" href="#the-cure-run">01 / THE CURE RUN <span>↗</span></a><a class="action secondary" href="#pretty-dead-girl">02 / PRETTY DEAD GIRL <span>↗</span></a></div>
-<div class="hero-footer"><span><b>DEVELOPER</b> DENIS MEDRANO CARRASCO</span><span>02 PROYECTOS JUGABLES</span><span>HECHO EN UNITY</span></div>
+<div class="hero-footer"><span><b>DENIS + ARIANA</b> / DESARROLLADORES</span><span>02 PROYECTOS JUGABLES</span><span>HECHO EN UNITY</span></div>
 </div></section>
 <div class="index-strip" id="seleccion"><div class="wrap index-grid">
 <a class="index-link" href="#the-cure-run"><span class="index-num">01</span><span><span class="index-title">THE CURE RUN</span><span class="index-meta">ENDLESS RUNNER / RETRO HOSPITAL</span></span><span class="index-arrow">↘</span></a>
